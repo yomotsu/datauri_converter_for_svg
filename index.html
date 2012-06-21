@@ -25,7 +25,7 @@
       <h1 class="title">Datauri converter for svg</h1>
     </header>
     <div id="container">
-      <p class="tagline">DataURI converter for SVG</p>
+      <p class="tagline">convert!</p>
       <div id="main" role="main">
         <div class="download-bar">
         <div class="inner">
@@ -34,9 +34,12 @@
         <span class="blc"></span><span class="trc"></span>
         </div>
         <article class="markdown-body">
-
-<textarea id="input" style="width:100%; height:20em;" placeholder="Paste SVG code here"></textarea>
-<textarea id="output" style="width:100%; height:10em;" readonly placeholder="(Read Only) Converted code should be output here"></textarea>
+<h1>input</h1>
+<p>Paste SVG code here</p>
+<textarea id="input" style="width:100%; height:20em;" placeholder="&lt;?xml version=&quot;1.0&quot;?&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;(...snip...)&lt;/svg&gt;"></textarea>
+<h1>result</h1>
+<p>Converted code should be output here. Copy to use this</p>
+<textarea id="output" style="width:100%; height:10em;" readonly placeholder="(Read Only)"></textarea>
 <button onclick="convert();">convert</button>
 <div><img src="" id="sample"></div>
 <script>

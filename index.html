@@ -11,16 +11,35 @@
 <button onclick="convert();">convert</button>
 <div><img src="" id="sample"></div>
 <script>
-function convert(){
-    var input = document.querySelector('#input');
-    var output = document.querySelector('#output');
-    var svg = input.value;
-    svg = svg.replace(/\n/g,'').replace(/<!--.*?-->/g,'');
-    svg = encodeURI(svg).replace(/#/g, '%23');
-    svg = 'data:image/svg+xml,' + svg;
-    output.innerHTML = svg;
-    document.querySelector('#sample').src = svg;
-    alert('finished!');
+const input = document.querySelector( '#input' );
+const output = document.querySelector( '#output' );
+
+input.addEventListener( 'drop', onDrop, false );
+
+function convert() {
+
+	let svg = input.value;
+	svg = svg.replace( /\n/g, '' ).replace( /<!--.*?-->/g, '' );
+	svg = encodeURI( svg ).replace( /#/g, '%23' ).replace( /%20/g, ' ' );
+	svg = 'data:image/svg+xml,' + svg;
+	output.innerHTML = svg;
+	document.querySelector( '#sample' ).src = svg;
+
+}
+
+function onDrop( event ) {
+
+	event.preventDefault();
+	const file = event.dataTransfer.files[ 0 ];
+	const reader = new FileReader();
+	reader.onload = function( event ) {
+
+		input.value = event.target.result;
+		convert();
+
+	};
+	reader.readAsText( file );
+
 }
 </script>​
 </body>
